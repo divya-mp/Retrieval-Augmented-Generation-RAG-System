@@ -44,23 +44,3 @@ Run the app:
 ```bash
 ./venv/bin/python main.py
 ```
-
-## Notes
-
-If your shell still picks up Conda automatically, run commands with the explicit `./venv/bin/python` and `./venv/bin/pip` paths shown above.
-
-The app uses `OLLAMA_MODEL` from the environment and defaults to `llama3.2`. If you already have a different local model, set `OLLAMA_MODEL` to that name instead.
-
-If `/ask` returns a model-not-found error, pull the configured model first:
-
-```bash
-ollama pull llama3.2
-```
-
-If `sentence_transformers` or `torch` still fail under Python 3.13, recreate the venv with Python 3.11 and reinstall:
-
-```bash
-rm -rf venv
-python3.11 -m venv venv
-./venv/bin/pip install -r requirements.txt
-```
