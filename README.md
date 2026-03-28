@@ -1,4 +1,4 @@
-# RAG App
+# Retrieval-Augmented-Generation-RAG-System
 
 PDF question-answering app using `sentence-transformers` for retrieval and Ollama for answer generation.
 
