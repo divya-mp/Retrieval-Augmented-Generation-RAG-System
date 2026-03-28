@@ -2,7 +2,6 @@
 
 PDF question-answering app using `sentence-transformers` for retrieval and Ollama for answer generation.
 
-Use the local `venv` for this project. Do not run it with Conda's global `python3`.
 
 ## Setup
 
