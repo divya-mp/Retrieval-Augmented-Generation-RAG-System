@@ -1,0 +1,7 @@
+faiss-cpu
+flask
+numpy
+ollama
+pypdf
+python-dotenv
+sentence-transformers

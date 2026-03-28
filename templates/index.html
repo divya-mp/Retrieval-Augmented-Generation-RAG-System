@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Basic RAG</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <main class="shell">
+        <header class="hero">
+            <p class="eyebrow">Retrieval-Augmented Generation</p>
+            <h1>Basic RAG</h1>
+            <p class="intro">Upload one PDF, index it, and ask questions against the extracted text.</p>
+        </header>
+
+        <section class="card">
+            <form id="upload-form">
+                <label for="file">Upload PDF</label>
+                <input id="file" name="file" type="file" accept=".pdf,application/pdf" required>
+                <button type="submit">Upload and Index</button>
+            </form>
+            <div id="upload-status" class="status" aria-live="polite"></div>
+        </section>
+
+        <section class="card">
+            <form id="ask-form">
+                <label for="question">Ask a question</label>
+                <textarea id="question" name="question" placeholder="What does the document say?"></textarea>
+                <button type="submit">Ask</button>
+            </form>
+            <div id="ask-status" class="status" aria-live="polite"></div>
+            <div id="answer" class="answer"></div>
+            <div id="sources" class="sources"></div>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
