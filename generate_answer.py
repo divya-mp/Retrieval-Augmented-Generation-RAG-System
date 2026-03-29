@@ -7,12 +7,18 @@ import os
 model_name = os.getenv("OLLAMA_MODEL", "llama3.2")
 
 def embed_query(text):
+    '''
+    Embeds query to use to find in index
+    '''
     embedding_model = get_embedding_model()
     embedding = embedding_model.encode(text, convert_to_numpy=True)
     return np.asarray(embedding, dtype="float32").reshape(1, -1)
 
 
 def retrieve_chunks(question, chunks, index, k=3):
+    '''
+    retrives chunks with the highest similarity
+    '''
     if index is None or not chunks:
         raise ValueError("No document has been uploaded and indexed yet.")
 
@@ -22,6 +28,9 @@ def retrieve_chunks(question, chunks, index, k=3):
 
 
 def generate_answer(context_chunks, question):
+    '''
+    Generates answer using model ollama
+    '''
     context = "\n\n".join(context_chunks)
     try:
         response = ollama.generate(

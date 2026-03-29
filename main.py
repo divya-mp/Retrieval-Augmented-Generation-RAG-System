@@ -27,6 +27,9 @@ def home():
 
 @app.route("/upload", methods=["POST"])
 def upload_file():
+    '''
+    User uploads pdf + index is built
+    '''
     global chunks, index
 
     file = request.files.get("file")
@@ -52,6 +55,9 @@ def upload_file():
 
 @app.route("/ask", methods=["POST"])
 def ask():
+    '''
+    User asks a question about pdf + answered using most similar chunks
+    '''
     data = request.get_json(silent=True) or {}
     question = data.get("question")
     if not question:
